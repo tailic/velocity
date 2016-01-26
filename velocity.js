@@ -455,6 +455,13 @@ return function (global, window, document, undefined) {
                     return i;
                 }
             }
+            
+            // IE Edge detection hotfix
+            var ua = window.navigator.userAgent;
+            var edge = ua.indexOf('Edge/');
+		      if (edge > 0) {
+		       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+		      }
         }
 
         return undefined;
